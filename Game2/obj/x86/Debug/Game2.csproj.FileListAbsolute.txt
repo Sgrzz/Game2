@@ -1,0 +1,27 @@
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\Game2.exe
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\Game2.pdb
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\MonoGame.Framework.dll
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.dll
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.XAudio2.dll
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.Direct3D11.dll
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.DXGI.dll
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.Direct2D1.dll
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.XInput.dll
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.RawInput.dll
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.Direct3D9.dll
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\MonoGame.Framework.xml
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.xml
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.XAudio2.xml
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.Direct3D11.xml
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.DXGI.xml
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.Direct2D1.xml
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.XInput.xml
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.RawInput.xml
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\SharpDX.Direct3D9.xml
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\obj\x86\Debug\Game2.csprojResolveAssemblyReference.cache
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\obj\x86\Debug\Game2.exe
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\obj\x86\Debug\Game2.pdb
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\Content\wake me up.xnb
+c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\Content\dude.xnb
