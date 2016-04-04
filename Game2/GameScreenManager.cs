@@ -62,6 +62,7 @@ namespace Game2
                 case State.menu:
                     break;
                 case State.worldmap:
+                        worldMap.Update(gameTime);
                     break;
                 case State.battle:
                     break;
@@ -70,13 +71,27 @@ namespace Game2
                 default:
                     break;
             }
-            worldMap.Update(gameTime);
+            
            
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            worldMap.Draw(spriteBatch);
+            switch (gameState)
+            {
+                case State.menu:
+                    break;
+                case State.worldmap:
+                        worldMap.Draw(spriteBatch);
+                    break;
+                case State.battle:
+                    break;
+                case State.inventory:
+                    break;
+                default:
+                    break;
+            }
+            
             
 
         }

@@ -25,3 +25,5 @@ c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\obj\x86\Deb
 c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\obj\x86\Debug\Game2.pdb
 c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\Content\wake me up.xnb
 c:\users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\Content\dude.xnb
+C:\Users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\Content\angryblue.xnb
+C:\Users\alexa_000\documents\visual studio 2015\Projects\Game2\Game2\bin\Windows\Debug\Content\angryblue_x16.xnb

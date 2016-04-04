@@ -83,6 +83,10 @@ namespace Game2
 
             spriteBatch.Begin();
             GameManager.Instance.Draw(spriteBatch);
+            SpriteFont font = Content.Load<SpriteFont>("angryblue");
+            spriteBatch.DrawString(font, "Mayhem of Sound", new Vector2(50, 50), Color.Purple);
+            SpriteFont font1 = Content.Load<SpriteFont>("angryblue_x16");
+            spriteBatch.DrawString(font1, "teste font 2", new Vector2(50, 175), Color.Purple);
             spriteBatch.End();
 
             base.Draw(gameTime);

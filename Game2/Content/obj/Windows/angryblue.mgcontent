@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/angryblue.spritefont</SourceFile>
+  <SourceTime>2016-04-01T11:06:51.8108719+01:00</SourceTime>
+  <DestFile>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/bin/Windows/angryblue.xnb</DestFile>
+  <DestTime>2016-04-01T11:21:38.7795055+01:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2015-04-29T18:14:44+01:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2015-04-29T18:14:44+01:00</ProcessorTime>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

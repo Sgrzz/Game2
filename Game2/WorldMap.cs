@@ -30,13 +30,13 @@ namespace Game2
         }
         public void UnloadContent()
         {
-            dude
+            dude.UnloadContent();
         }
 
 
         public void Update(GameTime gameTime)
         {
-        
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
