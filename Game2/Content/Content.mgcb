@@ -41,9 +41,3 @@
 /processorParam:TextureFormat=Compressed
 /build:angryblue.spritefont
 
-#begin angryblue_x16.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:angryblue_x16.spritefont
-

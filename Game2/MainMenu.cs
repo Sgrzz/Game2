@@ -2,45 +2,77 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
-
+using System;
 
 namespace Game2
 {
     class MainMenu
     {
         ContentManager Content;
-        Texture2D texture;
-        Vector2 position;
-        int height;
-        int width;
-        bool Visible;
+
+        MenuButton[] arrayButtons ={
+            new MenuButton("NEW GAME", new Vector2((float)0.5, (float)0.3), Color.Coral),
+            new MenuButton("OPTIONS", new Vector2((float)0.5, (float)0.4), Color.Purple),
+            new MenuButton("LOAD GAME", new Vector2((float)0.5, (float)0.5), Color.Purple),
+            new MenuButton("CREDITS", new Vector2((float)0.5, (float)0.6), Color.Purple),
+            new MenuButton("EXIT", new Vector2((float)0.5, (float)0.7), Color.Purple)};
+
 
         public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
         {
             Content = content;
-            //texture = Content.Load<Texture2D>("");
-            position = new Vector2(0, 0);
-            height = (graphicsDevice.Viewport.Height);
-            width = (graphicsDevice.Viewport.Width);
-            Visible = true;
+
+            
+            foreach (var item in arrayButtons)
+            {
+                item.LoadContent(Content,graphicsDevice);
+            }
 
 
         }
         public void UnloadContent()
         {
+            foreach (var item in arrayButtons)
+            {
+                item.UnloadContent();
+            }
 
         }
 
 
         public void Update(GameTime gameTime)
         {
+            foreach (var item in arrayButtons)
+            {
+                item.Update(gameTime);
+            }
 
+        }
+
+        private int CursorOn()
+        {
+
+
+            return 0;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
 
-           // spriteBatch.Draw(texture, (new Rectangle((int)position.X, (int)position.Y, width, height)), Color.White);
+
+            SpriteFont font = Content.Load<SpriteFont>("angryblue");
+
+            foreach (var item in arrayButtons)
+            {
+                item.Draw(spriteBatch);
+                spriteBatch.DrawString(font,item.IsCursorOn().ToString(), Vector2.Zero, Color.Black);
+            }
+            
+
+            
+
+
+
         }
     }
 }

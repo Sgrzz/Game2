@@ -10,6 +10,7 @@ namespace Game2
 
 
         WorldMap worldMap;
+        MainMenu menu;
         
         enum State
         {
@@ -39,6 +40,7 @@ namespace Game2
         {
             
             worldMap = new WorldMap();
+            menu = new MainMenu();
           
             gameState = State.menu;
         }
@@ -46,11 +48,13 @@ namespace Game2
         public void LoadContent(ContentManager Content, GraphicsDevice graphicsDevice)
         {
             worldMap.LoadContent(Content, graphicsDevice);
+            menu.LoadContent(Content, graphicsDevice);
          
         }
         public void UnloadContent()
         {
             worldMap.UnloadContent();
+            menu.UnloadContent();
             
         }
 
@@ -60,6 +64,7 @@ namespace Game2
             switch (gameState)
             {
                 case State.menu:
+                        menu.Update(gameTime);
                     break;
                 case State.worldmap:
                         worldMap.Update(gameTime);
@@ -80,6 +85,7 @@ namespace Game2
             switch (gameState)
             {
                 case State.menu:
+                        menu.Draw(spriteBatch);
                     break;
                 case State.worldmap:
                         worldMap.Draw(spriteBatch);

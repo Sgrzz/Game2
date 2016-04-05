@@ -16,6 +16,8 @@ namespace Game2
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+
+            
             Content.RootDirectory = "Content";
         }
 
@@ -28,7 +30,10 @@ namespace Game2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.ApplyChanges();
+            IsMouseVisible = true;
             base.Initialize();
         }
 
@@ -78,15 +83,11 @@ namespace Game2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Blue);
+            GraphicsDevice.Clear(Color.Beige);
             // TODO: Add your drawing code here
 
             spriteBatch.Begin();
             GameManager.Instance.Draw(spriteBatch);
-            SpriteFont font = Content.Load<SpriteFont>("angryblue");
-            spriteBatch.DrawString(font, "Mayhem of Sound", new Vector2(50, 50), Color.Purple);
-            SpriteFont font1 = Content.Load<SpriteFont>("angryblue_x16");
-            spriteBatch.DrawString(font1, "teste font 2", new Vector2(50, 175), Color.Purple);
             spriteBatch.End();
 
             base.Draw(gameTime);
