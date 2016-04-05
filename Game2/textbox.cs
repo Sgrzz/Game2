@@ -60,22 +60,48 @@ namespace Game2
 
             for (int i = 0; i < temp.Length; i++)
             {
-                if (keypressed.IsKeyUp(temp[i]))
+                if ((keypressed.IsKeyUp(temp[i])))
                 {
 
-                    switch (temp[i])
-                    {
-                        case Keys.Space:text += " ";
-                            break;
-                        case Keys.Back:
-                            text = text != "" ? text.Remove(text.Length - 1) : "";
-                            break;
+                    //switch (temp[i])
+                    //{
+                    //    case Keys.Space:text += " ";
+                    //        break;
+                    //    case Keys.Back:
+                    //        text = text != "" ? text.Remove(text.Length - 1) : "";
+                    //        break;
                              
-                        default:
-                            text += temp[i].ToString();
-                            break;
-                    }
+                    //    default:
+                    //        text += temp[i];
+                    //        break;
+                    //}
                     
+                    if (temp[i] == Keys.Back && text.Length > 0)
+                    {
+                        text = text.Remove(text.Length - 1, 1);
+                    }
+                    else if (temp[i] == Keys.Space)
+                    {
+                        text = text.Insert(text.Length, " ");
+                    }
+                    else
+                    {
+                        string keyString = temp[i].ToString();
+                        
+                        bool isUpperCase = ((keypressed.IsKeyDown(Keys.CapsLock) &&
+                                             (!keypressed.IsKeyDown(Keys.RightShift) &&
+                                              !keypressed.IsKeyDown(Keys.LeftShift))) ||
+                                            (!keypressed.IsKeyDown(Keys.CapsLock) &&
+                                             (keypressed.IsKeyDown(Keys.RightShift) ||
+                                              keypressed.IsKeyDown(Keys.LeftShift))));
+
+                        if (keyString.Length == 1)
+                        {
+                            text += isUpperCase ? keyString.ToUpper() : keyString.ToLower();
+                        }
+                    }
+
+
 
                 }
                 
@@ -100,11 +126,7 @@ namespace Game2
         public void Draw(SpriteBatch spriteBatch)
         {
 
-           
-            
-            
 
-            
             //spriteBatch.Draw(rect, coor, Color.White);
 
             spriteBatch.DrawString(font, text, new Vector2((float)((spriteBatch.GraphicsDevice.Viewport.Width * position.X) - (font.MeasureString(text).X) / 2), (float)(spriteBatch.GraphicsDevice.Viewport.Height * position.Y)), cor);

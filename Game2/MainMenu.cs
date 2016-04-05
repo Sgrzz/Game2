@@ -31,6 +31,7 @@ namespace Game2
         MenuButton[] newGameButtons = { new MenuButton(2, "Accept", new Vector2((float)0.6, (float)0.6), Color.Purple),
             new MenuButton(1, "Cancel", new Vector2((float)0.4, (float)0.6), Color.Purple) };
 
+        Label text = new Label("Character Name:", new Vector2((float)0.5, (float)0.4), Color.Black, true);
 
 
         public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
@@ -49,6 +50,8 @@ namespace Game2
 
             newGameTextBox.LoadContent(Content, graphicsDevice);
 
+            text.LoadContent(Content, graphicsDevice);
+
 
         }
         public void UnloadContent()
@@ -63,6 +66,7 @@ namespace Game2
             }
 
             newGameTextBox.UnloadContent();
+            text.UnloadContent();
 
         }
 
@@ -136,6 +140,10 @@ namespace Game2
         public void Draw(SpriteBatch spriteBatch)
         {
 
+
+           // MouseState mouse = Mouse.GetState();
+            //spriteBatch.DrawString(Content.Load<SpriteFont>("angry blue"), mouse.Position.ToString(), Vector2.Zero, Color.Black);
+
             switch (menu)
             {
                 case MenuState.MAINMENU:
@@ -147,11 +155,17 @@ namespace Game2
 
                     break;
                 case MenuState.NEWGAME:
+
+                    
+
                     foreach (var item in newGameButtons)
                     {
                         item.Draw(spriteBatch);
 
                     }
+
+                    
+                    text.Draw(spriteBatch);
                     newGameTextBox.Draw(spriteBatch);
                        
                     break;

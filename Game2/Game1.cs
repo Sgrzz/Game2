@@ -17,7 +17,8 @@ namespace Game2
         {
             graphics = new GraphicsDeviceManager(this);
 
-            
+           // Mouse.WindowHandle = Window.Handle;
+
             Content.RootDirectory = "Content";
         }
 
@@ -30,8 +31,9 @@ namespace Game2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.PreferredBackBufferWidth = 640;//GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = 400;//GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             IsMouseVisible = true;
             base.Initialize();
@@ -46,7 +48,7 @@ namespace Game2
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            GameManager.Instance.LoadContent(Content, GraphicsDevice);
+            GameScreenManager.Instance.LoadContent(Content, GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
         }
@@ -58,7 +60,7 @@ namespace Game2
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
-            GameManager.Instance.UnloadContent();
+            GameScreenManager.Instance.UnloadContent();
         }
 
         /// <summary>
@@ -71,7 +73,7 @@ namespace Game2
             
 
             // TODO: Add your update logic here
-            GameManager.Instance.Update(gameTime);
+            GameScreenManager.Instance.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -86,7 +88,7 @@ namespace Game2
             // TODO: Add your drawing code here
 
             spriteBatch.Begin();
-            GameManager.Instance.Draw(spriteBatch);
+            GameScreenManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

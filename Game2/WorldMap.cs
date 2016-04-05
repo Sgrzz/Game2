@@ -13,7 +13,7 @@ namespace Game2
         int height;
         int width;
         Rectangle rect;
-        Actor dude;
+ 
 
         public void LoadContent(ContentManager content,GraphicsDevice graphicsDevice)
         {
@@ -25,12 +25,12 @@ namespace Game2
 
             rect = new Rectangle((int)position.X,(int) position.Y, width, height);
 
-            dude.LoadContent(content, graphicsDevice);
+
 
         }
         public void UnloadContent()
         {
-            dude.UnloadContent();
+            
         }
 
 

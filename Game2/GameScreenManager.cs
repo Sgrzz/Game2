@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Game2
 {
-    class GameManager
+    class GameScreenManager
     {
 
 
@@ -19,30 +19,33 @@ namespace Game2
 
         State gameState;
 
-        private static MainMenu instance;
+        private static GameScreenManager instance;
 
 
 
-        public static MainMenu Instance
+        public static GameScreenManager Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new MainMenu();
+                    instance = new GameScreenManager();
                 }
                 return instance;
             }
         }
 
 
-        private GameManager()
+        private GameScreenManager()
         {
             
             worldMap = new WorldMap();
             menu = new MainMenu();
           
             gameState = State.menu;
+
+            
+
         }
 
         public void LoadContent(ContentManager Content, GraphicsDevice graphicsDevice)
@@ -72,6 +75,7 @@ namespace Game2
                 case State.battle:
                     break;
                 case State.inventory:
+
                     break;
                 default:
                     break;
@@ -82,9 +86,14 @@ namespace Game2
 
         public void Draw(SpriteBatch spriteBatch)
         {
+
+            
+
             switch (gameState)
             {
                 case State.menu:
+                        
+                        
                         menu.Draw(spriteBatch);
                     break;
                 case State.worldmap:
