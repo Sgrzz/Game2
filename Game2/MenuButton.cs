@@ -16,18 +16,17 @@ namespace Game2
         ContentManager Content;
         private Vector2 realPosition;
         private bool flag;
-        private GameTime time;
         SpriteFont font;
-        private int alphatemp,oldseconds;
-        string temp = "";
+        private int alpha;
+        int id;
 
 
-        public MenuButton(string text,Vector2 position,Color textcolor)
+        public MenuButton(int id,string text,Vector2 position,Color textcolor)
         {
             this.text = text;
             this.position = position;
             this.textcolor = textcolor;
-           
+            this.id = id;
                  
         }
 
@@ -42,39 +41,28 @@ namespace Game2
 
         }
 
-        public void Update(GameTime gameTime)
-        {
-            time = gameTime;
-            oldseconds = 0;
-        }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             
             Color cor = textcolor;
-            if (IsCursorOn() && oldseconds<time.TotalGameTime.TotalMilliseconds/100)
+            if (IsCursorOn())
             {
-               
+                          
 
-                temp = temp == "1" ? "0" : "1";
-
-                spriteBatch.DrawString(font, temp, new Vector2(250, 40), cor);
-
-                oldseconds = (int)time.TotalGameTime.TotalMilliseconds/100;
-
-                spriteBatch.DrawString(font, oldseconds.ToString(), new Vector2(250,0), cor);
-
-
-                flag = alphatemp > 300 ? false : alphatemp < 1 ? true : false;
-                alphatemp = flag ? alphatemp + 1 : alphatemp - 1;
-                
-
-                int alpha = flag ? 300 - (alphatemp / 3) : (alphatemp / 3);
-               
-
+                if (alpha > 300)
+                    flag = false;
+                if (alpha < 0)
+                    flag = true;
+           
+                alpha = flag ? alpha + 15 : alpha - 15;
                 cor = new Color(textcolor, alpha);
             }
-           
+            else
+            {
+                alpha = 300;
+            }
+
 
 
             spriteBatch.DrawString(font, text, new Vector2((float)((spriteBatch.GraphicsDevice.Viewport.Width * position.X) - (font.MeasureString(text).X) / 2), (float)(spriteBatch.GraphicsDevice.Viewport.Height * position.Y)), cor);
@@ -82,7 +70,15 @@ namespace Game2
 
         }
 
-        public bool IsCursorOn()
+        public int IsClicked()
+        {
+            MouseState cursor = Mouse.GetState();
+            if (IsCursorOn() && cursor.LeftButton == ButtonState.Pressed)
+                return id;
+            return 0;
+        }
+
+        private bool IsCursorOn()
         {
             MouseState cursor = Mouse.GetState();
 
