@@ -27,8 +27,9 @@ namespace Game2
 
 
         TextBox newGameTextBox = new TextBox(new Vector2((float)0.5, (float)0.5),0.2,0.2, Color.Black);
-        MenuButton newGameAcceptButton= new MenuButton(1,"Accept", new Vector2((float)0.6, (float)0.6), Color.Purple);
-        MenuButton newGameCancelButton = new MenuButton(2,"Cancel", new Vector2((float)0.4, (float)0.6), Color.Purple);
+
+        MenuButton[] newGameButtons = { new MenuButton(1, "Accept", new Vector2((float)0.6, (float)0.6), Color.Purple),
+            new MenuButton(2, "Cancel", new Vector2((float)0.4, (float)0.6), Color.Purple) };
 
 
 
@@ -41,8 +42,11 @@ namespace Game2
                 item.LoadContent(Content,graphicsDevice);
             }
 
-            newGameAcceptButton.LoadContent(Content, graphicsDevice);
-            newGameCancelButton.LoadContent(Content, graphicsDevice);
+            foreach (var item in newGameButtons)
+            {
+                item.LoadContent(Content, graphicsDevice);
+            }
+
             newGameTextBox.LoadContent(Content, graphicsDevice);
 
 
@@ -53,9 +57,11 @@ namespace Game2
             {
                 item.UnloadContent();
             }
+            foreach (var item in newGameButtons)
+            {
+                item.UnloadContent();
+            }
 
-            newGameAcceptButton.UnloadContent();
-            newGameCancelButton.UnloadContent();
             newGameTextBox.UnloadContent();
 
         }
@@ -92,9 +98,9 @@ namespace Game2
                     break;
                 case MenuState.NEWGAME:
                     newGameTextBox.Update(gameTime);
-
-
                     
+
+
                     break;
                 case MenuState.OPTIONS:
                     break;
@@ -128,9 +134,13 @@ namespace Game2
 
                     break;
                 case MenuState.NEWGAME:
-                        newGameAcceptButton.Draw(spriteBatch);
-                        newGameTextBox.Draw(spriteBatch);
-                        newGameCancelButton.Draw(spriteBatch);
+                    foreach (var item in newGameButtons)
+                    {
+                        item.Draw(spriteBatch);
+
+                    }
+                    newGameTextBox.Draw(spriteBatch);
+                       
                     break;
                 case MenuState.OPTIONS:
                     break;
