@@ -13,7 +13,7 @@ namespace Game2
         int height;
         int width;
         Rectangle rect;
- 
+        ActorWorld dude = new ActorWorld(0, new Vector2((float)0.1, (float)0.1),(float) 0.1,(float) 0.05, "dude");
 
         public void LoadContent(ContentManager content,GraphicsDevice graphicsDevice)
         {
@@ -25,24 +25,25 @@ namespace Game2
 
             rect = new Rectangle((int)position.X,(int) position.Y, width, height);
 
-
+            dude.LoadContent(content, graphicsDevice);
 
         }
         public void UnloadContent()
         {
-            
+            dude.UnloadContent();
         }
 
 
         public void Update(GameTime gameTime)
         {
-            
+            dude.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
 
             spriteBatch.Draw(texture, rect, Color.Black);
+            dude.Draw(spriteBatch);
         }
     }
 }
