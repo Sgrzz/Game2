@@ -1,0 +1,21 @@
+<item>
+	<id>0</id>	
+	<path>items\0</path>	
+	<description>blank</description>	
+	<type></type>	
+	<stats></stats>	
+</item>
+<item>
+	<id>1</id>	
+	<path>items\1</path>
+	<description>fj</description>	
+	<type></type>	
+	<stats>autism</stats>	
+</item>
+<item>
+	<id>2</id>	
+	<path>items\2</path>	
+	<description>bersurk</description>	
+	<type></type>	
+	<stats></stats>	
+</item>
