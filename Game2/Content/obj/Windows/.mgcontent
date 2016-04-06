@@ -4,8 +4,11 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/wake me up.png</File>
-    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/dude.png</File>
-    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/angryblue.spritefont</File>
+    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/wake me up.png</File>
+    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/dude.png</File>
+    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/angryblue.spritefont</File>
+    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/Items/123.jpg</File>
+    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/Items/1234.png</File>
+    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/Items/blank.png</File>
   </SourceFiles>
 </SourceFileCollection>
