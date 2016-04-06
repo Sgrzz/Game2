@@ -81,8 +81,12 @@ namespace Game2
         private bool IsCursorOn()
         {
             MouseState cursor = Mouse.GetState();
+            
 
-            if (realPosition.X < cursor.Position.X && realPosition.Y < cursor.Position.Y && realPosition.X+font.MeasureString(text).X>cursor.Position.X && realPosition.Y + font.MeasureString(text).Y > cursor.Position.Y)
+            //if (realPosition.X < cursor.Position.X && realPosition.Y < cursor.Position.Y && realPosition.X+font.MeasureString(text).X>cursor.Position.X && realPosition.Y + font.MeasureString(text).Y > cursor.Position.Y)
+            //    return true;
+
+            if (realPosition.X < cursor.X && realPosition.Y < cursor.Y && realPosition.X + font.MeasureString(text).X > cursor.X && realPosition.Y + font.MeasureString(text).Y > cursor.Y)
                 return true;
 
             return false;

@@ -7,20 +7,27 @@ namespace Game2
 {
     class Actor
     {
-        ContentManager Content;
-        Texture2D texture;
-        Vector2 position;
-        int height;
-        int width;
+        protected ContentManager Content;
+        protected Texture2D texture;
+        protected string textureString;
+        protected Vector2 position;
+        protected float height;
+        protected float width;
+        protected int id;
 
+        public Actor(int id,Vector2 position,float height,float width,string texture)
+        {
+            this.id = id;
+            this.position = position;
+            this.height = height;
+            this.width = width;
+            this.textureString = texture;
+        }
 
         public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
         {
             this.Content = content;
-            texture = Content.Load<Texture2D>("dude");
-            position = new Vector2(250,250);
-            height = (int)(graphicsDevice.Viewport.Height*0.2);
-            width = (int)(graphicsDevice.Viewport.Width*0.2);
+            texture = Content.Load<Texture2D>(textureString);
 
            
 
@@ -33,13 +40,13 @@ namespace Game2
 
         public void Update(GameTime gameTime)
         {
-            position.X += 1;
+           /// position.X += 1;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            spriteBatch.Draw(texture, (new Rectangle((int)position.X, (int)position.Y, width, height)), Color.White);
+            spriteBatch.Draw(texture, (new Rectangle((int)(spriteBatch.GraphicsDevice.Viewport.Width*position.X), (int)(spriteBatch.GraphicsDevice.Viewport.Height * position.Y), (int)(spriteBatch.GraphicsDevice.Viewport.Width * width), (int)(spriteBatch.GraphicsDevice.Viewport.Height * height))), Color.White);
         }
     }
 }

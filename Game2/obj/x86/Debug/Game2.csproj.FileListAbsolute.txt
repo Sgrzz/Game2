@@ -47,7 +47,7 @@ C:\Users\alexa_000\Documents\Visual Studio 2015\Projects\Game2\Game2\bin\Windows
 C:\Users\alexa_000\Documents\Visual Studio 2015\Projects\Game2\Game2\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\alexa_000\Documents\Visual Studio 2015\Projects\Game2\Game2\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 C:\Users\alexa_000\Documents\Visual Studio 2015\Projects\Game2\Game2\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
-C:\Users\alexa_000\Documents\Visual Studio 2015\Projects\Game2\Game2\obj\x86\Debug\Game2.csprojResolveAssemblyReference.cache
 C:\Users\alexa_000\Documents\Visual Studio 2015\Projects\Game2\Game2\bin\Windows\x86\Debug\Content\angryblue.xnb
 C:\Users\alexa_000\Documents\Visual Studio 2015\Projects\Game2\Game2\bin\Windows\x86\Debug\Content\dude.xnb
 C:\Users\alexa_000\Documents\Visual Studio 2015\Projects\Game2\Game2\bin\Windows\x86\Debug\Content\wake me up.xnb
+C:\Users\alexa_000\Documents\Visual Studio 2015\Projects\Game2\Game2\obj\x86\Debug\Game2.csprojResolveAssemblyReference.cache

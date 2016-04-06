@@ -14,16 +14,16 @@ namespace Game2
         ContentManager Content;
         List<Item> allItems;
         Vector2 position;
-        double multiplierX = 0, multiplierY=0;
+        double multiplierX = 0, multiplierY = 0;
 
         private List<Item> LoadItems()
         {
             List<Item> items = new List<Item>();
-            string path = (System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments))+ "\\MayhemOfSound\\SaveData\\User\\Items.txt";
+            string path = (System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments)) + "\\MayhemOfSound\\SaveData\\User\\Items.txt";
 
             StreamReader listItems = new StreamReader(path);
-            string allI = listItems.ReadLine();          
-          
+            string allI = listItems.ReadLine();
+
 
             listItems.Close();
             string[] itemA = allI.Split(',');
@@ -44,20 +44,20 @@ namespace Game2
                 }
             }
 
-            return (items);                    
-            
+            return (items);
+
         }
 
         public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
         {
-            this.Content = content;            
+            this.Content = content;
             allItems = LoadItems();
             foreach (var item in allItems)
             {
-                item.img = Content.Load<Texture2D>("Items\\"+item.id);
+                item.img = Content.Load<Texture2D>("Items\\" + item.id);
             }
-            position.X = (float) 0.03;
-            position.Y = (float) 0.03;
+            position.X = (float)0.03;
+            position.Y = (float)0.03;
 
         }
         public void UnloadContent()
@@ -65,7 +65,7 @@ namespace Game2
         }
 
         public void Update(GameTime gameTime)
-        {            
+        {
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -81,28 +81,33 @@ namespace Game2
                          
             }*/
 
+
+
+            spriteBatch.Draw(Content.Load<Texture2D>("Items\\bgInv"), Vector2.Zero,null,Color.White,0,Vector2.Zero,0.63f,SpriteEffects.None,0);
+
             for (int y = 0; y < 5; y++)
             {
                 for (int x = 0; x < 10; x++)
                 {
-                    if (( allItems.Count-1 ) < ( x + y * 10))
+                    if ((allItems.Count - 1) < (x + y * 10))
                     {
                         //preecher com blank
                         spriteBatch.Draw(Content.Load<Texture2D>("Items\\0"), new Vector2((float)((spriteBatch.GraphicsDevice.Viewport.Width * (position.X + (x * 0.06)))), (float)(spriteBatch.GraphicsDevice.Viewport.Height * (position.Y + (y * 0.16)))), Color.White);
                     }
                     else
                     {
-                        spriteBatch.Draw(allItems[x + y * 10].img, new Vector2((float)((spriteBatch.GraphicsDevice.Viewport.Width * (position.X + (x*0.06) ))), (float)(spriteBatch.GraphicsDevice.Viewport.Height * (position.Y + (y*0.16) ))), Color.White);
+                        spriteBatch.Draw(allItems[x + y * 10].img, new Vector2((float)((spriteBatch.GraphicsDevice.Viewport.Width * (position.X + (x * 0.06)))), (float)(spriteBatch.GraphicsDevice.Viewport.Height * (position.Y + (y * 0.16)))), Color.White);
+                       // spriteBatch
                     }
                     //multiplierX = multiplierX == 0.06 * (allItems.Count) ? 0 : multiplierX += 0.06;
                     //multiplierY = multiplierX == 0.06 * (allItems.Count) ? multiplierY += 0.16 : multiplierY;
                     //multiplierY = multiplierY == 0.16 * (2) ? 0 : multiplierY;
-                    
+
                 }
             }
 
-            
-            
+
+
 
         }
     }
