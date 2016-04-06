@@ -13,12 +13,12 @@ namespace Game2
         int height;
         int width;
         Rectangle rect;
-        ActorWorld dude = new ActorWorld(0, new Vector2((float)0.1, (float)0.1),(float) 0.1,(float) 0.05, "dude");
+        ActorWorld dude = new ActorWorld(0, new Vector2((float)0.0, (float)0.0),(float) 0.1,(float) 0.05, "WorldActor");
 
         public void LoadContent(ContentManager content,GraphicsDevice graphicsDevice)
         {
             Content = content;
-            texture = Content.Load<Texture2D>("wake me up");
+            texture = Content.Load<Texture2D>("WorldMap\\WorldMapFull");
             position = Vector2.Zero;
             height = graphicsDevice.Viewport.Height;
             width = graphicsDevice.Viewport.Width;

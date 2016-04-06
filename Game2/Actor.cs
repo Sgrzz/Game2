@@ -27,7 +27,7 @@ namespace Game2
         public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
         {
             this.Content = content;
-            texture = Content.Load<Texture2D>(textureString);
+            texture = Content.Load<Texture2D>("Actor\\"+textureString);
 
            
 
@@ -40,7 +40,21 @@ namespace Game2
 
         public void Update(GameTime gameTime)
         {
-           /// position.X += 1;
+        }
+
+
+        public void Animation(string anim)
+        {
+            switch (anim)
+            {
+
+
+                case "left":
+
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

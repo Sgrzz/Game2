@@ -11,7 +11,8 @@ namespace Game2
 
         WorldMap worldMap;
         MainMenu menu;
-        
+        Inventory inventory;
+
         enum State
         {
             menu,worldmap,battle,inventory
@@ -41,8 +42,9 @@ namespace Game2
             
             worldMap = new WorldMap();
             menu = new MainMenu();
-          
-            gameState = State.menu;
+            inventory = new Inventory();
+
+            gameState = State.worldmap;
 
             
 
@@ -52,12 +54,15 @@ namespace Game2
         {
             worldMap.LoadContent(Content, graphicsDevice);
             menu.LoadContent(Content, graphicsDevice);
-         
+            //inventory.LoadContent(Content, graphicsDevice);
+
+
         }
         public void UnloadContent()
         {
             worldMap.UnloadContent();
             menu.UnloadContent();
+           // inventory.UnloadContent();
             
         }
 
@@ -75,6 +80,7 @@ namespace Game2
                 case State.battle:
                     break;
                 case State.inventory:
+                 //   inventory.Update(gameTime);
 
                     break;
                 default:
@@ -102,6 +108,7 @@ namespace Game2
                 case State.battle:
                     break;
                 case State.inventory:
+                     //   inventory.Draw(spriteBatch);
                     break;
                 default:
                     break;

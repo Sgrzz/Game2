@@ -10,10 +10,15 @@ namespace Game2
 
         enum MovingState
         {
-            moving,stop
+            MOVING,STOP
         }
 
-        MovingState currentState = MovingState.stop;
+        MovingState currentState = MovingState.STOP;
+
+        int numMovements=0;
+        int numMovenentsAllowed=50;
+
+        float movespeed =(float) 0.001;
 
         string direction;
 
@@ -22,52 +27,89 @@ namespace Game2
 
         }
 
+
+
+
         public new void Update(GameTime gameTime)
         {
 
             KeyboardState PressedKeyboard = Keyboard.GetState();
 
-            foreach (var item in PressedKeyboard.GetPressedKeys())
+            if (currentState==MovingState.STOP)
             {
-                switch (item)
+                foreach (var item in PressedKeyboard.GetPressedKeys())
                 {
-                    case Keys.W:
-                        direction = "w";
-                        currentState = MovingState.moving;
-                        break;
-                    case Keys.S:
-                        direction = "s";
-                        currentState = MovingState.moving;
-                        break;
-                    case Keys.A:
-                        direction = "a";
-                        currentState = MovingState.moving;
-                        break;
-                    case Keys.D:
-                        direction = "d";
-                        currentState = MovingState.moving;
-                        break;
-                    default:
-                        break;
+                    switch (item)
+                    {
+                        case Keys.W:
+                            direction = "w";
+                            currentState = MovingState.MOVING;
+                            break;
+                        case Keys.S:
+                            direction = "s";
+                            currentState = MovingState.MOVING;
+                            break;
+                        case Keys.A:
+                            direction = "a";
+                            currentState = MovingState.MOVING;
+                            break;
+                        case Keys.D:
+                            direction = "d";
+                            currentState = MovingState.MOVING;
+                            break;
+                        default:
+                            break;
+                    }
                 }
+
+                
             }
 
 
-            Move();
+            if (currentState == MovingState.MOVING)
+                Move();
+            
+            
+
+
+            
             base.Update(gameTime);
         }
 
         private void Move()
         {
-            switch (currentState)
+            if (numMovements!=numMovenentsAllowed)
             {
-                case MovingState.moving:
-                    base.position.X += 1;
-                    break;
-                case MovingState.stop:
-                    break;
-                default:
-                    break;
+                switch (direction)
+                {
+
+                    case "w":
+                        base.position.Y -= 2*movespeed;
+                        break;
+                    case "s":
+                        base.position.Y += 2*movespeed;
+                        break;
+                    case "a":
+                        base.position.X -= movespeed;
+                        break;
+                    case "d":
+                        base.position.X += movespeed;
+                        break;
+
+                    default:
+                        break;
+
+
+                }
+                
+                numMovements++;
+                
+
+            }
+            else
+            {
+                numMovements = 0;
+                currentState = MovingState.STOP;
             }
 
 
