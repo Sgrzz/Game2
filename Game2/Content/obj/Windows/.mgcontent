@@ -4,11 +4,18 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/wake me up.png</File>
-    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/dude.png</File>
-    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/angryblue.spritefont</File>
-    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/Items/123.jpg</File>
-    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/Items/1234.png</File>
-    <File>C:/Users/Estagio/Documents/Game2/Game2/Content/Items/blank.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Actor/Bassist/Bassist.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Actor/Drums/Drums.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Actor/Guitarist/Guitarist.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Actor/Vocalist/Vocalist.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Items/0.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Items/1.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Items/123.jpg</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Items/1234.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Items/2.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Items/bgInv.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/Items/blank.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/WorldMap/WorldMapFull.png</File>
+    <File>C:/Users/alexa_000/Documents/Visual Studio 2015/Projects/Game2/Game2/Content/battleground/temp.png</File>
   </SourceFiles>
 </SourceFileCollection>
