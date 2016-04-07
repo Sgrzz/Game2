@@ -59,6 +59,12 @@ namespace Game2
         }
 
 
+        public string Text()
+        {
+            return text;
+        }
+
+
 
 
         public void Draw(SpriteBatch spriteBatch)

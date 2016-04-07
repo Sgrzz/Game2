@@ -17,7 +17,7 @@ namespace Game2
         public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
         {
             this.Content = content;
-            texture = Content.Load<Texture2D>("background_battle");
+            texture = Content.Load<Texture2D>("battleground/temp");
             position = new Vector2(0, 0);
             height = (graphicsDevice.Viewport.Height);
             width = (graphicsDevice.Viewport.Width);

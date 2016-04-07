@@ -37,25 +37,35 @@ namespace Game2
 
             if (currentState==MovingState.STOP)
             {
+               
+
                 foreach (var item in PressedKeyboard.GetPressedKeys())
                 {
                     switch (item)
                     {
                         case Keys.W:
                             direction = "w";
+                            this.anim = "up";
                             currentState = MovingState.MOVING;
+                            IsMoving = true;
                             break;
                         case Keys.S:
                             direction = "s";
+                            this.anim = "down";
                             currentState = MovingState.MOVING;
+                            IsMoving = true;
                             break;
                         case Keys.A:
                             direction = "a";
+                            this.anim = "left";
                             currentState = MovingState.MOVING;
+                            IsMoving = true;
                             break;
                         case Keys.D:
                             direction = "d";
+                            this.anim = "right";
                             currentState = MovingState.MOVING;
+                            IsMoving = true;
                             break;
                         default:
                             break;
@@ -109,6 +119,7 @@ namespace Game2
             else
             {
                 numMovements = 0;
+                IsMoving = false;
                 currentState = MovingState.STOP;
             }
 

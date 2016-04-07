@@ -119,7 +119,10 @@ namespace Game2
         {
             this.text = text;
         }
-
+        public string Text()
+        {
+            return text;
+        }
 
 
 

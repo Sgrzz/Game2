@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace Game2
 {
@@ -11,48 +13,53 @@ namespace Game2
     {
         ContentManager Content;
 
+
+
         enum MenuState
         {
-            MAINMENU,NEWGAME,OPTIONS,LOADGAME,CREDITS,EXIT,PLAY
+            MAINMENU, NEWGAME, OPTIONS, LOADGAME, CREDITS, EXIT, PLAY
         }
 
         MenuState menu = MenuState.MAINMENU;
 
+        public bool IsDone { get; set; } = false;
+
         //mainmenu
 
         MenuButton[] buttonsMainMenu ={
-            new MenuButton(1,"NEW GAME", new Vector2((float)0.5, (float)0.3), Color.Purple),
-            new MenuButton(3,"OPTIONS", new Vector2((float)0.5, (float)0.5), Color.Purple),
-            new MenuButton(2,"LOAD GAME", new Vector2((float)0.5, (float)0.4), Color.Purple),
-            new MenuButton(4,"CREDITS", new Vector2((float)0.5, (float)0.6), Color.Purple),
-            new MenuButton(5,"EXIT", new Vector2((float)0.5, (float)0.7), Color.Purple)};
+            new MenuButton(1,"NEW GAME", new Vector2((float)0.5, (float)0.3), new Color(91,23,91)),
+            new MenuButton(3,"OPTIONS", new Vector2((float)0.5, (float)0.5), new Color(91,23,91)),
+            new MenuButton(2,"LOAD GAME", new Vector2((float)0.5, (float)0.4), new Color(91,23,91)),
+            new MenuButton(4,"CREDITS", new Vector2((float)0.5, (float)0.6), new Color(91,23,91)),
+            new MenuButton(5,"EXIT", new Vector2((float)0.5, (float)0.7),  new Color(91,23,91))};
 
 
         //new game
 
-        TextBox textBoxNewGame = new TextBox(new Vector2((float)0.5, (float)0.5),0.2,0.2, Color.Black);
+        TextBox textBoxNewGame = new TextBox(new Vector2((float)0.5, (float)0.5),0.2,0.2, new Color(91, 23, 91));
 
-        MenuButton[] buttonsNewGame = { new MenuButton(2, "Accept", new Vector2((float)0.6, (float)0.6), Color.Purple),
-            new MenuButton(1, "Cancel", new Vector2((float)0.4, (float)0.6), Color.Purple) };
+        MenuButton[] buttonsNewGame = { new MenuButton(2, "Accept", new Vector2((float)0.6, (float)0.6),  new Color(91,23,91)),
+            new MenuButton(1, "Cancel", new Vector2((float)0.4, (float)0.6),  new Color(91,23,91)) };
 
-        Label labelCharacter = new Label("Character Name:", new Vector2((float)0.5, (float)0.4), Color.Black, true);
-
+        Label labelCharacter = new Label("Type the save name:", new Vector2((float)0.5, (float)0.4), new Color(91, 23, 91), true);
+        public string saveName { get; set; } = "";
 
         //credits
         Label[] labelCredits =
         {
-            new Label("Developed by:", new Vector2((float)0.5, (float)0.1), Color.Black, true),
-            new Label("Alexandre Fernandes      Paulo Goncalves", new Vector2((float)0.5, (float)0.2), Color.Black, true),
-            new Label("Graphics:", new Vector2((float)0.5, (float)0.3), Color.Black, true),
-            new Label("roubado nas internets", new Vector2((float)0.5, (float)0.4), Color.Black, true),
-            new Label("Sound:", new Vector2((float)0.5, (float)0.5), Color.Black, true),
-            new Label("Same", new Vector2((float)0.5, (float)0.6), Color.Black, true),
-            new Label("Developed in context for a assignment", new Vector2((float)0.5, (float)0.7), Color.Black, true)
+            new Label("Developed by:", new Vector2((float)0.5, (float)0.1), Color.Red, true),
+            new Label("Alexandre Fernandes      Paulo Goncalves", new Vector2((float)0.5, (float)0.2), Color.Red, true),
+            new Label("Graphics:", new Vector2((float)0.5, (float)0.3), Color.Red, true),
+            new Label("ainda nao roubado nas internets", new Vector2((float)0.5, (float)0.4), Color.Red, true),
+            new Label("Sound:", new Vector2((float)0.5, (float)0.5), Color.Red, true),
+            new Label("Same", new Vector2((float)0.5, (float)0.6), Color.Red, true),
+            new Label("Developed in context for a assignment", new Vector2((float)0.5, (float)0.7), Color.Red, true)
         };
 
         MenuButton[] buttonsCredits = { new MenuButton(1, "BACK", new Vector2((float)0.5, (float)0.9), Color.Purple) };
 
-
+        //loadGame
+        LoadGame loadGame = new LoadGame();
 
 
 
@@ -93,6 +100,9 @@ namespace Game2
                 item.LoadContent(Content, graphicsDevice);
             }
 
+
+            loadGame.LoadContent(Content,graphicsDevice);
+
         }
         public void UnloadContent()
         {
@@ -123,8 +133,10 @@ namespace Game2
                 item.UnloadContent();
             }
 
-
+            loadGame.UnLoadContent();
         }
+
+        
 
 
         public void Update(GameTime gameTime)
@@ -166,7 +178,28 @@ namespace Game2
                                 menu = MenuState.MAINMENU;
                                 break;
                             case 2:
-                                menu = MenuState.PLAY;
+                                if (textBoxNewGame.Text()!="")
+                                {
+                                    menu = MenuState.PLAY;
+                                    IsDone = true;
+                                    saveName = textBoxNewGame.Text();
+
+                                    Directory.CreateDirectory((System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments)) + "\\MayhemOfSound\\SaveData\\" + saveName);
+                                    using (FileStream fs = File.Create((System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments)) + "\\MayhemOfSound\\SaveData\\" + saveName + "\\Items.txt"))
+                                    {
+                                        Byte[] info = new UTF8Encoding(true).GetBytes("1,1");
+                                        fs.Write(info, 0, info.Length);
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    labelCharacter.Text("You must type in something!");
+                                }
+                                
+                                
+
+
                                 break;
                             default:
                                 break;
@@ -178,6 +211,9 @@ namespace Game2
                 case MenuState.OPTIONS:
                     break;
                 case MenuState.LOADGAME:
+
+                    loadGame.Update(gameTime);
+
                     break;
                 case MenuState.CREDITS:
                         if (buttonsCredits[0].IsClicked()==1)
@@ -235,6 +271,7 @@ namespace Game2
 
                     break;
                 case MenuState.LOADGAME:
+                    loadGame.Draw(spriteBatch);
                     break;
                 case MenuState.CREDITS:
                     foreach (var item in labelCredits)

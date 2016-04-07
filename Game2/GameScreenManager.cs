@@ -12,10 +12,12 @@ namespace Game2
         WorldMap worldMap;
         MainMenu menu;
         Inventory inventory;
+        BattleGround battleGround;
+        string saveName;
 
         enum State
         {
-            menu,worldmap,battle,inventory
+            MENU,WORLDMAP,BATTLE,INVENTORY
         }
 
         State gameState;
@@ -43,8 +45,8 @@ namespace Game2
             worldMap = new WorldMap();
             menu = new MainMenu();
             inventory = new Inventory();
-
-            gameState = State.worldmap;
+            battleGround = new BattleGround();
+            gameState = State.MENU;
 
             
 
@@ -54,7 +56,8 @@ namespace Game2
         {
             worldMap.LoadContent(Content, graphicsDevice);
             menu.LoadContent(Content, graphicsDevice);
-            //inventory.LoadContent(Content, graphicsDevice);
+            inventory.LoadContent(Content, graphicsDevice);
+            battleGround.LoadContent(Content, graphicsDevice);
 
 
         }
@@ -62,7 +65,8 @@ namespace Game2
         {
             worldMap.UnloadContent();
             menu.UnloadContent();
-           // inventory.UnloadContent();
+            inventory.UnloadContent();
+            battleGround.UnloadContent();
             
         }
 
@@ -71,17 +75,39 @@ namespace Game2
         {
             switch (gameState)
             {
-                case State.menu:
+                case State.MENU:
                         menu.Update(gameTime);
+                    if (menu.IsDone)
+                        gameState = State.WORLDMAP;
+                        menu.IsDone = false;
+                        saveName = menu.saveName;
                     break;
-                case State.worldmap:
+                case State.WORLDMAP:
                         worldMap.Update(gameTime);
+                        if (worldMap.IsDone)
+                        {
+                            gameState = State.INVENTORY;
+                            inventory.Update(gameTime,saveName);
+                            worldMap.IsDone = false;
+                        }
+                        if (worldMap.CanBattle)
+                        {
+                            gameState = State.BATTLE;
+                        }
+                            
                     break;
-                case State.battle:
-                    break;
-                case State.inventory:
-                 //   inventory.Update(gameTime);
+                case State.BATTLE:
 
+                    worldMap.SetBattle(false);
+                    battleGround.Update(gameTime);
+                    break;
+                case State.INVENTORY:
+                    inventory.Update(gameTime,saveName);
+                    if (inventory.IsDone)
+                    {
+                        gameState = State.WORLDMAP;
+                        inventory.IsDone = false;
+                    }
                     break;
                 default:
                     break;
@@ -97,18 +123,19 @@ namespace Game2
 
             switch (gameState)
             {
-                case State.menu:
+                case State.MENU:
                         
                         
                         menu.Draw(spriteBatch);
                     break;
-                case State.worldmap:
+                case State.WORLDMAP:
                         worldMap.Draw(spriteBatch);
                     break;
-                case State.battle:
+                case State.BATTLE:
+                        battleGround.Draw(spriteBatch);
                     break;
-                case State.inventory:
-                     //   inventory.Draw(spriteBatch);
+                case State.INVENTORY:
+                        inventory.Draw(spriteBatch);
                     break;
                 default:
                     break;

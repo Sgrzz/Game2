@@ -17,7 +17,7 @@ namespace Game2
         private Vector2 realPosition;
         private bool flag;
         SpriteFont font;
-        private int alpha;
+        private int color;
         int id;
 
 
@@ -50,17 +50,18 @@ namespace Game2
             {
                           
 
-                if (alpha > 300)
+                if (color > 256)
                     flag = false;
-                if (alpha < 0)
+                if (color < 0)
                     flag = true;
            
-                alpha = flag ? alpha + 15 : alpha - 15;
-                cor = new Color(textcolor, alpha);
+                color = flag ? color + 15 : color - 15;
+                cor = new Color(textcolor.R + color, textcolor.G - color, textcolor.B - color);
+                
             }
             else
             {
-                alpha = 300;
+                color = 256;
             }
 
 
